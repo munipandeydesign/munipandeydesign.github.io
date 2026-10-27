@@ -78,10 +78,10 @@ p { margin: 0; }
   text-decoration: none;
 }
 .nav .wrap { flex-wrap: nowrap; gap: 14px; }
-.nav ul { list-style: none; display: flex; gap: 6px; margin: 0; padding: 2px 0; flex-wrap: wrap; flex: 1; min-width: 0; }
+.nav ul { list-style: none; display: flex; gap: 5px; margin: 0; padding: 2px 0; flex-wrap: wrap; flex: 1; min-width: 0; }
 .nav ul a, .menu-btn {
-  display: inline-block; padding: 6px 10px; border: 1px solid var(--rule); border-radius: 999px;
-  font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.2;
+  display: inline-block; padding: 6px 9px; border: 1px solid var(--rule); border-radius: 999px;
+  font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.2;
   color: var(--muted); background: transparent; text-decoration: none; white-space: nowrap; cursor: pointer;
   transition: border-color .2s, color .2s, background-color .2s;
 }
@@ -103,7 +103,6 @@ p { margin: 0; }
 }
 .menu-panel a:hover, .menu-panel button:hover { background: var(--surface); color: var(--maroon); }
 .menu-panel hr { border: 0; border-top: 1px solid var(--rule); margin: 6px 0; }
-.menu-panel .menu-email { text-transform: none; letter-spacing: 0.02em; font-size: 0.85rem; color: var(--maroon); }
 @media (max-width: 760px) {
   .nav ul { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
   .nav ul::-webkit-scrollbar { display: none; }
@@ -233,6 +232,7 @@ p { margin: 0; }
 .honors strong { font-family: var(--display); font-weight: 400; font-size: var(--step-1); }
 .honors span { color: var(--muted); font-size: 0.92rem; }
 .honors .studio-pair { margin-top: 10px; }
+.studio.side-studio { grid-template-columns: 1fr; gap: 40px; margin-top: 28px; padding-top: 36px; order: 0; }
 .honors a { color: var(--ink); text-decoration: none; }
 .honors a:hover strong { color: var(--maroon); }
 .contact div { display: grid; gap: 2px; border-bottom: 1px solid var(--rule); padding-bottom: 10px; }
@@ -440,16 +440,16 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
   <div class="wrap">
     <a class="mono-mark" href="#top" aria-label="Muni Pandey, back to top">MP</a>
     <ul>
-      <li><a href="#limitless">Limitless</a></li>
-      <li><a href="#collins">Collins</a></li>
+      <li><a href="#limitless" title="Aircraft Advancement (Limitless)">Aircraft Adv.</a></li>
+      <li><a href="#collins" title="Collins Aerospace">Collins Aero</a></li>
       <li><a href="#inclusive">CoreGrip</a></li>
       <li><a href="#calibrate">Calibrate</a></li>
       <li><a href="#solarcar">SolarCar</a></li>
       <li><a href="#lignetics">Lignetics</a></li>
-      <li><a href="#objects">Objects</a></li>
-      <li><a href="#brand">Brand</a></li>
+      <li><a href="#objects">Sculpture</a></li>
+      <li><a href="#brand">Brand Identity</a></li>
       <li><a href="#photography">Photo</a></li>
-      <li><a href="#notes">Notes</a></li>
+      <li><a href="#notes">Blog</a></li>
     </ul>
     <div class="menu">
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="muni-menu">MUNI<span aria-hidden="true"> ▾</span></button>
@@ -462,8 +462,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
     <a href="#sound">Listen</a>
     <hr>
     <a href="https://www.linkedin.com/in/munipandey" target="_blank" rel="noopener">LinkedIn ↗</a>
-    <button class="menu-contact" type="button">Contact</button>
-    <a class="menu-email" href="mailto:muni@vt.edu" hidden>muni@vt.edu</a>
+    <a href="mailto:muni@vt.edu">Contact</a>
   </div>
 </nav>
 
@@ -1276,8 +1275,12 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
       <img class="headshot" src="img/about/headshot.jpg" alt="Portrait of Muni Pandey" width="400" height="400">
       <p>I'm an Industrial Design student at Virginia Tech with a minor in Human-Computer Interaction, graduating May 2028 on a Presidential Scholarship. I design across physical product and interface, because a passenger experiences both as one thing. Right now I'm also on the SolarCar team's human factors group, working on driver egress and cockpit ergonomics.</p>
       <p style="margin-top:14px;color:var(--muted);font-size:0.92rem">SolidWorks · Fusion 360 · Rhino · KeyShot · Blender · Figma · 3D printing · laser cutting · anthropometrics · usability testing</p>
-    </div>
-    <div class="studio">
+      <div class="studio side-studio">
+      <div class="studio-row" id="sound">
+        <p class="ritual-label">Sound</p>
+        <p>Sound design studies on my YouTube channel. I re-score game trailers from layered royalty-free sounds, textures and atmospheres, re-cutting the footage where the pacing needs it, to test whether tension, scale and anticipation can be carried by sound alone. Best with headphones; trailer footage is credited to its original studios.</p>
+        <p><a href="https://www.youtube.com/@Muni1000" target="_blank" rel="noopener">Listen on YouTube ↗</a></p>
+      </div>
       <div class="studio-row" id="making">
         <p class="ritual-label">Making</p>
         <p>I prototype hands-on, including assembling and calibrating an Elegoo resin printer.</p>
@@ -1286,10 +1289,6 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
           <figure class="shot" style="flex:1.3284 1 0"><img src="img/making/resin-calibration.jpg" alt="Muni in safety glasses and gloves calibrating the build plate of an Elegoo resin printer" loading="lazy"></figure>
         </div>
       </div>
-      <div class="studio-row" id="sound">
-        <p class="ritual-label">Sound</p>
-        <p>Sound design studies on my YouTube channel. I re-score game trailers from layered royalty-free sounds, textures and atmospheres, re-cutting the footage where the pacing needs it, to test whether tension, scale and anticipation can be carried by sound alone. Best with headphones; trailer footage is credited to its original studios.</p>
-        <p><a href="https://www.youtube.com/@Muni1000" target="_blank" rel="noopener">Listen on YouTube ↗</a></p>
       </div>
     </div>
     <div class="about-side">
@@ -1326,18 +1325,13 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
 (function () {
   var btn = document.querySelector('.menu-btn');
   var panel = document.getElementById('muni-menu');
-  var email = panel.querySelector('.menu-email');
   function set(open) {
     btn.setAttribute('aria-expanded', open);
     panel.hidden = !open;
-    if (!open) email.hidden = true;
   }
   btn.addEventListener('click', function (e) { e.stopPropagation(); set(panel.hidden); });
-  panel.querySelector('.menu-contact').addEventListener('click', function (e) {
-    e.stopPropagation(); email.hidden = false; email.focus();
-  });
   panel.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', function () { if (a !== email) set(false); });
+    a.addEventListener('click', function () { set(false); });
   });
   document.addEventListener('click', function (e) { if (!panel.contains(e.target)) set(false); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { set(false); btn.focus(); } });
