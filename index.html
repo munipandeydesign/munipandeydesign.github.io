@@ -422,6 +422,7 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
 .jrow > figure { min-width: 0; margin: 0; }
 .jrow img { width: 100%; height: auto !important; aspect-ratio: auto !important; object-fit: fill !important; }
 .solo { max-width: 760px; margin-inline: auto; }
+.mp-pair { max-width: 720px; margin-inline: auto; width: 100%; }
 @media (max-width: 640px) { .jrow { flex-wrap: wrap; } .jrow > figure { flex-basis: 100% !important; } }
 .teardown-spec { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 14px 0; position: static !important; }
 .side-view img { background: #fff; }
@@ -1119,12 +1120,18 @@ footer .wrap { padding-block: 24px 40px; font-size: 0.8rem; color: var(--muted);
       <div class="brand-intro">
         <h3>MP Monogram</h3>
         <p class="brand-line">Personal identity · Regal · Elegant · Illusion-based</p>
-        <p>My personal mark. I explored 100 versions on sticky notes, grouped into fluid strokes, structure studies, distinctive forms, detail development and illusion ideas. Then I built the chosen direction on a construction grid and refined it into a single stroke that reads as both M and P.</p>
+        <p>My personal mark. I explored 100 versions on sticky notes, sorted into rows by idea: architecture, illusion, negative vs. positive space and numbers. I took one direction through six grid studies, from a raw fluid stroke to a final form, and judged the finished mark against four criteria: elegant, intriguing, illusion-based and regal.</p>
       </div>
-      <figure class="shot">
-        <img src="img/brand/mp-monogram-board.jpg" alt="Process board for the MP monogram: rows of pink, blue and green sticky notes with monogram variations around a large final mark, a construction grid and refinement sketches" loading="lazy">
-        <figcaption>Monogram process board: exploration, construction on a grid, refinement, final mark.</figcaption>
-      </figure>
+      <div class="jrows">
+        <div class="jrow">
+          <figure class="shot" style="flex:1.6516 1 0"><img src="img/brand/mp-stickies-wall.jpg" alt="Wall of about 100 pink, blue and green sticky notes, each with a hand-drawn MP monogram variation, in rows labeled Architecture, Illusion, Neg vs Pos and Numbers" loading="lazy"><figcaption>100 sticky-note explorations, sorted by idea.</figcaption></figure>
+          <figure class="shot" style="flex:2.2384 1 0"><img src="img/brand/mp-sketching.jpg" alt="Muni's hand sketching a monogram variation on a green sticky note among rows of notes on a wooden table" loading="lazy"><figcaption>Sketching variations by hand.</figcaption></figure>
+        </div>
+        <div class="jrow mp-pair">
+          <figure class="shot" style="flex:0.7500 1 0"><img src="img/brand/mp-grid-studies.jpg" alt="Sheet of six grid studies labeled Fluid, Structure, Merge, Refinement, Detail and F.I.N.A.L., drawn in black pen" loading="lazy"><figcaption>Six grid studies: fluid, structure, merge, refinement, detail, final.</figcaption></figure>
+          <figure class="shot" style="flex:0.6471 1 0"><img src="img/brand/mp-final-poster.jpg" alt="MP Monogram poster: the final single-stroke mark annotated Elegant, Regal, Intriguing and Illusion-based, with its construction grid and success criteria" loading="lazy"><figcaption>Final mark with its construction grid and success criteria.</figcaption></figure>
+        </div>
+      </div>
     </article>
 
     <article class="brand-block">
