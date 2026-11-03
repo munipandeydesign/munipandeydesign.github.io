@@ -620,6 +620,18 @@ a { color: inherit; }
 .car-nav .car-btn:hover:not(:disabled) { transform: scale(1.06); background: transparent; color: var(--ink); border-color: var(--ink); }
 .car-nav .car-btn:disabled { opacity: .25; box-shadow: none; }
 .car-count, .car-nav span { font-size: .9rem; letter-spacing: .2em; color: var(--ink); }
+/* Nov 3: no dashed ticks anywhere; captions left aligned */
+.index .k::before, .block h3::before, .ps-kicker::before, .cg-kicker::before, .car-k::before, .ritual-label::before, .brand-line::before,
+.shot figcaption::before, .cg-pair figcaption::before, .cg-board figcaption::before, .cg-bleed figcaption::before, figcaption::before,
+.hero-tag::before, .hero-tag::after { content: none !important; display: none !important; }
+figcaption { text-align: left !important; justify-self: start !important; }
+/* Calibrate intro: screen left, story right */
+.cal-intro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: start; margin-bottom: 72px; }
+.cal-intro .shot.lead { max-width: none; margin: 0; }
+.cal-intro-text { display: grid; gap: 28px; }
+.cal-intro-text .links.demo-cta { justify-content: flex-start; margin: 4px 0 0; }
+@media (max-width: 860px) { .cal-intro { grid-template-columns: 1fr; gap: 32px; } }
+.block p.quote, .quote { color: #f2f2f2 !important; }
 </style>
 
 <nav class="nav" aria-label="Projects">
@@ -684,7 +696,7 @@ a { color: inherit; }
   <div class="hero dark">
     <img class="hero-img" src="img/limitless/cap-frame-render.jpg" alt="" style="object-position:50% 40%">
     <div class="wrap hero-text">
-      <p class="hero-eyebrow">Limitless Accessible Aircraft · ICAT Interdisciplinary Projects · mentored by a Boeing seats integration engineer · Aug 2025 - Aug 2026</p>
+      <p class="hero-eyebrow">Limitless Accessible Aircraft · ICAT Interdisciplinary Projects · mentored by a Boeing seats integration engineer</p>
       <h2 class="hero-title">LIMITLESS</h2>
       
       <p class="hero-tag">Powered wheelchairs fly in the cargo hold. If the joystick breaks, the chair can't be driven, and the passenger lands without their mobility. We designed a protector that rides on the chair through every handoff.</p>
@@ -802,7 +814,7 @@ a { color: inherit; }
   <div class="hero dark">
     <img class="hero-img" src="img/collins/teardown-frame.jpg" alt="" style="object-position:50% 50%">
     <div class="wrap hero-text">
-      <p class="hero-eyebrow">VTID Transportation Task Force × Collins Aerospace · Sep - Dec 2024</p>
+      <p class="hero-eyebrow">VTID Transportation Task Force × Collins Aerospace</p>
       <h2 class="hero-title">COLLINS AEROSPACE</h2>
       <p class="hero-line">Energy-Efficient Cooling for In-Flight Comfort</p>
       <p class="hero-tag">Economy seats run warm, and cooling them costs energy an airline is trying to cut. We looked for a cooler seat that still fits Collins Aerospace's goal of a carbon-neutral cabin.</p>
@@ -815,7 +827,7 @@ a { color: inherit; }
       <figure class="shot tall" style="flex:0.8521 1 0"><img src="img/collins/teardown-team.jpg" alt="Students taking apart an economy seat row on the studio floor" loading="lazy"><figcaption>Taking apart a real economy row</figcaption></figure>
       <figure class="shot" style="flex:1.4710 1 0"><img src="img/collins/teardown-parts.jpg" alt="Economy triple seat with one seat stripped to its frame, cushions, seatback screen and control parts laid out" loading="lazy"><figcaption>One seat stripped down to the frame, parts laid out</figcaption></figure>
       <figure class="shot" style="flex:1.6711 1 0"><img src="img/collins/teardown-frame.jpg" alt="Close-up of the seat pan underside: beam, mounting plate and wiring" loading="lazy"><figcaption>Under the seat pan, where any cooling hardware has to fit</figcaption></figure>
-      <figure class="shot" style="flex:0.7394 1 0"><img src="img/collins/side-view.jpg" alt="Line drawing of an economy seat in side view: headrest, reclining back, armrest pivot, seat pan and leg frame" loading="lazy" style="background:#fff"><figcaption>My side-view line drawing of the teardown seat</figcaption></figure>
+      <figure class="shot" style="flex:0.7394 1 0"><img src="img/collins/side-view.jpg" alt="Line drawing of an economy seat in side view: headrest, reclining back, armrest pivot, seat pan and leg frame" loading="lazy" style="background:#fff"><figcaption>The teardown seat</figcaption></figure>
     </div>
 
     <div class="case-body">
@@ -1026,7 +1038,6 @@ a { color: inherit; }
   <div class="hero light plain">
     
     <div class="wrap hero-text">
-      <p class="hero-eyebrow">Jul 2026 - present</p>
       <h2 class="hero-title">CALIBRATE</h2>
       
       <p class="hero-tag">Students get told they're a "visual learner" and stop there. Calibrate is an AI study coach that treats the study method as a hypothesis, then tests it on the student's own material.</p>
@@ -1035,15 +1046,27 @@ a { color: inherit; }
   </div>
   <div class="wrap">
 
-    <div class="links demo-cta">
-      <a class="btn" href="https://www.youtube.com/watch?v=_FBpdD2b6TY" target="_blank" rel="noopener">Watch the demo video ↗</a>
-      <!-- hidden for now: <a class="btn ghost" href="https://www.figma.com/proto/bCCuVCMRrb3elGTQCmjVjm?node-id=0-1" target="_blank" rel="noopener">Open the Figma prototype ↗</a> -->
-    </div>
-
-    <figure class="shot lead">
+    <div class="cal-intro">
+      <figure class="shot lead">
       <img src="img/calibrate/question-bank.png" alt="Calibrate Question Bank screen: AI-generated questions tagged Approved, Needs Edit or Generated, with an Approve All Remaining button" loading="lazy">
       <figcaption>The Question Bank. Every AI-written question carries a status, and only approved questions count as evidence.</figcaption>
     </figure>
+      <div class="cal-intro-text">
+        <div class="block">
+          <h3>Problem</h3>
+          <p>"Learning styles" are a popular idea with weak evidence behind them. Most AI study apps make it worse: they label you, generate flashcards, and never check whether anything worked. Our question was different. Which technique actually raises <em>this</em> student's scores in <em>this</em> subject?</p>
+        </div>
+
+        <div class="block">
+          <h3>My role</h3>
+          <p>I mapped the full product loop, designed the screens, and set the UX direction for the team. I wrote the brief for how the product should look and feel, and ran the prototyping sprints with users.</p>
+        </div>
+        <div class="links demo-cta">
+      <a class="btn" href="https://www.youtube.com/watch?v=_FBpdD2b6TY" target="_blank" rel="noopener">Watch the demo video ↗</a>
+      <!-- hidden for now: <a class="btn ghost" href="https://www.figma.com/proto/bCCuVCMRrb3elGTQCmjVjm?node-id=0-1" target="_blank" rel="noopener">Open the Figma prototype ↗</a> -->
+    </div>
+      </div>
+    </div>
 
     <div class="case-body">
       <dl class="spec">
@@ -1055,15 +1078,6 @@ a { color: inherit; }
       </dl>
 
       <div class="story">
-        <div class="block">
-          <h3>Problem</h3>
-          <p>"Learning styles" are a popular idea with weak evidence behind them. Most AI study apps make it worse: they label you, generate flashcards, and never check whether anything worked. Our question was different. Which technique actually raises <em>this</em> student's scores in <em>this</em> subject?</p>
-        </div>
-
-        <div class="block">
-          <h3>My role</h3>
-          <p>I mapped the full product loop, designed the screens, and set the UX direction for the team. I wrote the brief for how the product should look and feel, and ran the prototyping sprints with users.</p>
-        </div>
 
         <figure class="shot">
           <img src="img/calibrate/flowchart.png" alt="Calibrate flowchart: onboarding, assign technique, paste notes, AI generates questions, user approves or edits, active study session, feedback check, one-tap follow-up with four reasons routing to next steps" loading="lazy">
