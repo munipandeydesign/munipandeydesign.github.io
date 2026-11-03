@@ -5,7 +5,7 @@
 <title>Muni Pandey Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cinzel:wght@400&family=Cormorant+Garamond:ital,wght@1,400&family=Anton&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: one narrative column per case study, with a fixed spec rail on the left (like a seat spec sheet) and image frames that hold their slot until real work drops in. */
 :root {
@@ -673,6 +673,25 @@ figcaption { text-align: left !important; justify-self: start !important; }
   .sys-node { margin-bottom: 36px; }
   .sys-loop { aspect-ratio: auto; }
 }
+/* Cover (Nov 3) */
+.intro.cover { position: relative; min-height: min(100vh, 980px); background: #0a0a0a; overflow: hidden; display: grid; align-items: center; }
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%; }
+.intro.cover .wrap.cover-text { position: relative; z-index: 1; display: block; text-align: left; justify-items: start; padding-block: 140px 80px; max-width: none; margin: 0; padding-inline: clamp(20px, 6.2vw, 90px); color: #ecebe6; }
+.cover-text > * { max-width: 470px; }
+.intro.cover .cover-name { font-family: "Cinzel", serif; font-weight: 400; font-size: clamp(3rem, 6vw, 5.2rem); letter-spacing: .34em; margin: 0; line-height: 1; color: #ecebe6; }
+.cover-focus { margin-top: 22px; font-family: "Cinzel", serif; font-size: .72rem; letter-spacing: .22em; color: #ecebe6; }
+.cover-school { margin-top: 8px; font-size: .72rem; letter-spacing: .12em; color: #a9a7a0; }
+.cover-rule { display: block; width: 40px; height: 1px; background: #ecebe6; opacity: .7; margin: 20px 0; }
+.cover-line { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 1.45rem; line-height: 1.4; color: #ecebe6; }
+.intro.cover .threads { justify-content: flex-start; margin-top: 30px; }
+.intro.cover .threads span { color: #d9d7d0; border-color: rgba(236,235,230,.28); }
+.intro.cover .seeking { margin-top: 22px; color: #b9b7b0; text-align: left; }
+.intro.cover .seeking strong { color: #ecebe6; }
+@media (max-width: 760px) {
+  .intro.cover { display: block; min-height: 0; }
+  .cover-img { position: relative; height: 62vh; object-position: 78% 40%; }
+  .intro.cover .wrap.cover-text { padding-block: 32px 56px; }
+}
 </style>
 
 <nav class="nav" aria-label="Projects">
@@ -705,13 +724,14 @@ figcaption { text-align: left !important; justify-self: start !important; }
   </div>
 </nav>
 
-<header class="intro" id="top">
-  <div class="wrap">
-    <p class="cover-name">MUNI PANDEY</p>
-    <p class="eyebrow focus">Human Factors · Cabin Interiors · Accessible Design</p>
-    <p class="school">Industrial Design, HCI minor · Virginia Tech</p>
-    <h1>Designing how a cabin <em>feels</em> to the person sitting in it.</h1>
-    <p class="lede">I work where seats, space and the senses meet: how big a cabin feels, how a passenger stays comfortable and safe, and how heat, touch and sound shape whether a person feels at ease.</p>
+<header class="intro cover" id="top">
+  <img class="cover-img" src="img/cover/cover.jpg" alt="Muni sitting in a studio chair, hand on lower back, beside a dark wall with a sketch of an airliner">
+  <div class="wrap cover-text">
+    <h1 class="cover-name">MUNI</h1>
+    <p class="cover-focus">Human Factors · Cabin Interiors · Accessible Design</p>
+    <p class="cover-school">Industrial Design, HCI minor · Virginia Tech</p>
+    <span class="cover-rule" aria-hidden="true"></span>
+    <p class="cover-line">Designing how a cabin feels<br>to the person sitting in it.</p>
     <div class="threads" aria-label="Focus areas">
       <span>Perceived space</span><span>Passenger well-being</span><span>Human factors</span><span>Sensory &amp; spatial audio</span>
     </div>
