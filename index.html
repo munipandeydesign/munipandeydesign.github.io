@@ -632,6 +632,47 @@ figcaption { text-align: left !important; justify-self: start !important; }
 .cal-intro-text .links.demo-cta { justify-content: flex-start; margin: 4px 0 0; }
 @media (max-width: 860px) { .cal-intro { grid-template-columns: 1fr; gap: 32px; } }
 .block p.quote, .quote { color: #f2f2f2 !important; }
+/* Calibrate intro + system map */
+.cal-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 28px 56px; align-items: start; margin-bottom: 56px; }
+.cal-intro .links.demo-cta { grid-column: 1 / -1; justify-content: flex-start; margin: 0; }
+.sysmap { margin-bottom: 88px; container-type: inline-size; }
+.sys-kicker { font-size: .72rem; letter-spacing: .32em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
+.sys-grid { display: grid; grid-template-columns: 1fr 36px 1fr 36px 1fr 36px 1fr; grid-template-rows: auto 40px auto; align-items: start; }
+.sys-node { margin: 0; display: grid; gap: 12px; }
+.sys-node img { width: 100%; aspect-ratio: 1440/1024; object-fit: cover; display: block; border: 1px solid #2a2a2a; }
+.sys-node figcaption { display: grid; gap: 4px; font-size: .78rem; line-height: 1.5; color: var(--muted); letter-spacing: .01em; }
+.sys-node figcaption b { color: var(--ink); font-weight: 500; font-size: .9rem; letter-spacing: .02em; }
+.sys-num { font-size: .66rem; letter-spacing: .3em; color: var(--muted); }
+.sys-tag { justify-self: start; font-size: .6rem; letter-spacing: .24em; text-transform: uppercase; border: 1px solid var(--ink); color: var(--ink); padding: 3px 8px; border-radius: 999px; margin: 2px 0; }
+.sys-node.gate img { border-color: var(--ink); box-shadow: 0 0 0 6px rgba(255,255,255,.08); }
+.n1 { grid-area: 1 / 1; } .n2 { grid-area: 1 / 3; } .n3 { grid-area: 1 / 5; } .n4 { grid-area: 1 / 7; }
+.n5 { grid-area: 3 / 7; } .n6 { grid-area: 3 / 5; } .n7 { grid-area: 3 / 3; }
+.sys-loop { grid-area: 3 / 1; align-self: start; border: 1px solid #2a2a2a; padding: 18px; font-size: .8rem; line-height: 1.55; color: var(--muted); display: grid; gap: 6px; aspect-ratio: 1440/1024; align-content: center; }
+.sys-loop b { color: var(--ink); font-weight: 500; letter-spacing: .3em; text-transform: uppercase; font-size: .66rem; }
+.sys-arrow { position: relative; display: block; }
+.sys-arrow::before { content: ""; position: absolute; background: #6b6b6b; }
+.sys-arrow::after { content: ""; position: absolute; width: 7px; height: 7px; border-top: 1px solid #9b9b9b; border-right: 1px solid #9b9b9b; }
+/* horizontal right (row 1) */
+.a1 { grid-area: 1 / 2; } .a2 { grid-area: 1 / 4; } .a3 { grid-area: 1 / 6; }
+.a1::before, .a2::before, .a3::before, .a5::before, .a6::before { left: 6px; right: 6px; top: 0; height: 1px; }
+.a1::after, .a2::after, .a3::after { right: 6px; top: -3px; transform: rotate(45deg); }
+.a7::before { left: 6px; right: 6px; top: 0; height: 1px; } .a7::after { left: 6px; top: -3px; transform: rotate(-135deg); }
+.a1, .a2, .a3, .a5, .a6, .a7 { align-self: start; margin-top: calc((100cqw - 108px) / 4 * 0.3556); height: 1px; }
+/* down (4 -> 5) */
+.a4 { grid-area: 2 / 7; justify-self: center; width: 1px; height: 100%; }
+.a4::before { top: 6px; bottom: 6px; left: 0; width: 1px; }
+.a4::after { bottom: 6px; left: -3px; transform: rotate(135deg); }
+/* left (row 3) */
+.a5 { grid-area: 3 / 6; } .a6 { grid-area: 3 / 4; } .a7 { grid-area: 3 / 2; }
+.a5::after, .a6::after { left: 6px; top: -3px; transform: rotate(-135deg); }
+@media (max-width: 860px) {
+  .cal-intro { grid-template-columns: 1fr; }
+  .sys-grid { grid-template-columns: 1fr; grid-template-rows: none; gap: 0; }
+  .sys-node, .sys-loop { grid-area: auto !important; }
+  .sys-arrow { display: none; }
+  .sys-node { margin-bottom: 36px; }
+  .sys-loop { aspect-ratio: auto; }
+}
 </style>
 
 <nav class="nav" aria-label="Projects">
@@ -1047,24 +1088,38 @@ figcaption { text-align: left !important; justify-self: start !important; }
   <div class="wrap">
 
     <div class="cal-intro">
-      <figure class="shot lead">
-      <img src="img/calibrate/question-bank.png" alt="Calibrate Question Bank screen: AI-generated questions tagged Approved, Needs Edit or Generated, with an Approve All Remaining button" loading="lazy">
-      <figcaption>The Question Bank. Every AI-written question carries a status, and only approved questions count as evidence.</figcaption>
-    </figure>
-      <div class="cal-intro-text">
         <div class="block">
           <h3>Problem</h3>
           <p>"Learning styles" are a popular idea with weak evidence behind them. Most AI study apps make it worse: they label you, generate flashcards, and never check whether anything worked. Our question was different. Which technique actually raises <em>this</em> student's scores in <em>this</em> subject?</p>
         </div>
-
         <div class="block">
           <h3>My role</h3>
           <p>I mapped the full product loop, designed the screens, and set the UX direction for the team. I wrote the brief for how the product should look and feel, and ran the prototyping sprints with users.</p>
         </div>
-        <div class="links demo-cta">
+      <div class="links demo-cta">
       <a class="btn" href="https://www.youtube.com/watch?v=_FBpdD2b6TY" target="_blank" rel="noopener">Watch the demo video ↗</a>
       <!-- hidden for now: <a class="btn ghost" href="https://www.figma.com/proto/bCCuVCMRrb3elGTQCmjVjm?node-id=0-1" target="_blank" rel="noopener">Open the Figma prototype ↗</a> -->
     </div>
+    </div>
+
+    <div class="sysmap" aria-label="How Calibrate works, step by step">
+      <p class="sys-kicker">How it works</p>
+      <div class="sys-grid">
+        <figure class="sys-node n1"><img src="img/calibrate/onboarding.png" alt="Onboarding question about study behavior" loading="lazy"><figcaption><span class="sys-num">01</span><b>Onboarding</b>Asks how you study, not how you "learn best."</figcaption></figure>
+        <figure class="sys-node n2"><img src="img/calibrate/hypothesis.png" alt="Starting hypothesis screen labeled as a hypothesis" loading="lazy"><figcaption><span class="sys-num">02</span><b>Starting hypothesis</b>A technique to test, labeled as a guess.</figcaption></figure>
+        <figure class="sys-node n3 gate"><img src="img/calibrate/question-bank.png" alt="Question Bank with Approved, Needs Edit and Generated tags" loading="lazy"><figcaption><span class="sys-num">03</span><span class="sys-tag">Trust gate</span><b>Question Bank</b>AI writes the questions. Only approved ones count.</figcaption></figure>
+        <figure class="sys-node n4"><img src="img/calibrate/feynman.png" alt="Timed Feynman technique session" loading="lazy"><figcaption><span class="sys-num">04</span><b>Study session</b>A timed session using that technique.</figcaption></figure>
+        <figure class="sys-node n5"><img src="img/calibrate/post-session.png" alt="Post-session check-in with a calm to wired slider" loading="lazy"><figcaption><span class="sys-num">05</span><b>Check-in</b>Thirty seconds: how it went, how it felt.</figcaption></figure>
+        <figure class="sys-node n6"><img src="img/calibrate/feedback-why.png" alt="Four-reason follow-up screen" loading="lazy"><figcaption><span class="sys-num">06</span><b>What happened?</b>If the score dips, four reasons lead to four next steps.</figcaption></figure>
+        <figure class="sys-node n7"><img src="img/calibrate/comparison.png" alt="Technique comparison chart that shows its sample size" loading="lazy"><figcaption><span class="sys-num">07</span><b>Comparison</b>Which technique is winning, and how sure it is.</figcaption></figure>
+        <span class="sys-arrow a1" aria-hidden="true"></span>
+        <span class="sys-arrow a2" aria-hidden="true"></span>
+        <span class="sys-arrow a3" aria-hidden="true"></span>
+        <span class="sys-arrow a4" aria-hidden="true"></span>
+        <span class="sys-arrow a5" aria-hidden="true"></span>
+        <span class="sys-arrow a6" aria-hidden="true"></span>
+        <span class="sys-arrow a7" aria-hidden="true"></span>
+        <div class="sys-loop"><b>Loop back to 02</b>The next session builds on what this one learned.</div>
       </div>
     </div>
 
@@ -1104,19 +1159,6 @@ figcaption { text-align: left !important; justify-self: start !important; }
               <div class="node accent"><small>Reason</small>Distracted / low energy</div><div class="arrow">→</div><div class="node"><small>Next step</small>Next-day review; the session isn't held against the technique</div>
             </div>
           </div>
-        </div>
-
-        <div class="jrows">
-        <div class="jrow">
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/onboarding.png" alt="Onboarding question: When you study history, what do you spend the most time doing?" loading="lazy"><figcaption>Onboarding asks about behavior</figcaption></figure>
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/hypothesis.png" alt="Starting hypothesis screen: For History, Feynman Technique, labeled as a hypothesis" loading="lazy"><figcaption>The starting hypothesis</figcaption></figure>
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/feynman.png" alt="Timed Feynman technique session asking the student to explain a topic to a 10 year old" loading="lazy"><figcaption>A timed Feynman session</figcaption></figure>
-        </div>
-        <div class="jrow">
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/post-session.png" alt="Post-session check: Rough or Good, and a Calm to Wired anxiety slider" loading="lazy"><figcaption>30-second check-in</figcaption></figure>
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/feedback-why.png" alt="Score dipped today, what happened? Four reason buttons" loading="lazy"><figcaption>The four-reason follow-up</figcaption></figure>
-          <figure class="shot" style="flex:1.4062 1 0"><img src="img/calibrate/comparison.png" alt="Technique comparison bar chart: Feynman 61 percent, Active Recall, Re-read 44 percent, with 2 more sessions until results are conclusive" loading="lazy"><figcaption>Comparison that admits its sample size</figcaption></figure>
-        </div>
         </div>
 
         <div class="figures">
